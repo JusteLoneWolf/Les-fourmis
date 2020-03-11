@@ -1,4 +1,4 @@
-import pygame
+import pygame # Installation "pip install pygame" avec la derniere version de python
 from Class import Player
 pygame.init()
 
