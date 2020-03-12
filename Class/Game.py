@@ -1,4 +1,5 @@
 from Class.Player import Player # Appel de la class Player
+
 import pygame
 
 class Game:
