@@ -11,7 +11,7 @@ background = pygame.image.load('asset/back/back.png')  # Met le fond
 game = Game()  # Met la class Game() dans game pour que ca face plus joli dans le code <3
 
 # Bloucle infini
-run = True  # Le jeu tourne ( ͡° ͜ʖ ͡°)
+run = True  # Le jeu tourne ( ͡° ͜ʖ ͡°)z
 
 while run:  # "Moteur"
     screen.blit(background, (0, -200))  # Met le back
@@ -41,8 +41,7 @@ while run:  # "Moteur"
 
 
         elif event.type == pygame.KEYDOWN:  # Si une touche est appuyer
-            game.press[
-                event.key] = True  # Je prend le numeros de la touche et je dit qu'elle est vrai pour qu'elle puisse
+            game.press[event.key] = True  # Je prend le numeros de la touche et je dit qu'elle est vrai pour qu'elle puisse
                                    # execute (va avec le code un peux plus en haut)
         elif event.type == pygame.KEYUP:  # Si une touche est relache
             game.press[event.key] = False  # Je met la touche en false pour arreter l'execution
