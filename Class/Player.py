@@ -8,7 +8,7 @@ class Player(pygame.sprite.Sprite): # appel de la super class Sprite
         self.turn = 0 # Nombre de tours de la fourmie
         self.maxTurn = 100 # Nombre max de tour
         self.holding = {'item': '', 'hold': False} # Si elle rien un objet
-        self.speed = 4 # Sa vitesse
+        self.speed = 20 # Sa vitesse
         self.playerImage = pygame.image.load('./asset/fourmis/ant_player.png') # La fourmie
         self.playerImage = pygame.transform.scale(self.playerImage, (50, 50)) # resize de la fourmie
         self.rect = self.playerImage.get_rect() # Capture des coordoné de la fourmie
