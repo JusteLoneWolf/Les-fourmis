@@ -1,7 +1,4 @@
 import pygame
-from render.game import Lunch
-import sys
-import time
 
 class MainMenu:
     def __init__(self):
