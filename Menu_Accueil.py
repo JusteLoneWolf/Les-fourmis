@@ -43,7 +43,7 @@ rectangle_Start= (1000, 800, 200, 200)
 
 
 #On définit une image, puis on la convertit pour la rendre plus facilement traitable par Pygame
-image_fond = pygame.image.load("fond_menu.jpg")
+image_fond = pygame.image.load("asset/fond_menu.jpg")
 image_fond.convert()
 
 #On définit des positions, qui serviront à placer le texte

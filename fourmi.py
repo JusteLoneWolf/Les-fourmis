@@ -4,7 +4,7 @@ class Fourmi(pygame.sprite.Sprite): #Cette classe permet de créer et gérer une
 
     def __init__(self, taille, Pas, NBTourSansManger, nom):     #On l'initialise ici
         super().__init__()  #On commence par initialiser la classe Sprite, qui signifie que notre objet en est lui-même un
-        self.image = pygame.transform.scale(pygame.image.load("fourmi.png"), (int(Pas), int(Pas)))      #On lui attribue une image, que l'on redimensionne
+        self.image = pygame.transform.scale(pygame.image.load("asset/fourmi.png"), (int(Pas), int(Pas)))      #On lui attribue une image, que l'on redimensionne
         self.rect = self.image.get_rect()       #On associe à notre objet un rect
         if(taille%2==0):        #Qui sera placé au milieu de la grille
             self.rect.x = float(taille/2 * Pas)     
