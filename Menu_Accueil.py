@@ -3,74 +3,76 @@ import Simulation
 
 
 pygame.init()
-#On définit quelques couleurs
-couleur_bleu = (89, 152, 255)
-couleur_noir = (0,0,0)
-couleur_blanc = (255,255,255)
-
-#On définit notre surface (la fenêtre), en lui attribuant une taille et un fond blanc
-screen = pygame.display.set_mode((1200, 950))
 
 
-#On définit des polices de texte, en indiquant laquelle on utilise ainsi que la taille de police
-police_arial = pygame.font.SysFont("arial", 50)
-police_arial2 = pygame.font.SysFont("arial", 25)
-
-#On créé du texte, en indiquant la police que l'on souhaite utiliser, le texte, et sa couleur. Le "True" indique qu'on lisse les contours
-nom_jeu = police_arial.render("Projet fourmi", True, couleur_noir)
-param_taille = police_arial2.render("Taille de la grille :", True, couleur_noir)
-param_nbObstacle = police_arial2.render("Nombre d'obstacles :", True, couleur_noir)
-param_nbMaxFourmis = police_arial2.render("Nombre maximum de fourmis :", True, couleur_noir)
-param_nbTourMaxMortSansManger = police_arial2.render("Nombre de tour avant de mourir de faim :", True, couleur_noir)
-param_posNourriture = police_arial2.render("Nourriture positionnée...", True, couleur_noir)
-param_posNourriture1 = police_arial2.render("par défaut", True, couleur_noir)
-param_posNourriture2 = police_arial2.render("aléatoirement", True, couleur_noir)
-erreur = police_arial2.render("Vous devez saisir un nombre", True, couleur_noir)
-text_Start = police_arial.render("Start", True, couleur_noir)
-erreur_Start = police_arial2.render("Vous devez remplir tous les champs", True, couleur_noir)
-Fois = police_arial2.render("x", True, couleur_noir)
-
-#On créé des rectangles avec leur position et leur taille
-rectangle_Taille= (250, 385, 100, 50)
-rectangle_nbObstacle= (300, 485, 100, 50)
-rectangle_nbMaxFourmis= (400, 585, 100, 50)
-rectangle_tourSansManger= (525, 685, 100, 50)
-rectangle_Defaut= (390, 785, 140, 50)
-rectangle_Aleatoire= (575, 785, 200, 50)
-rectangle_NotError= (550, 350, 400, 100)
-rectangle_Start= (1000, 800, 200, 200)
-
-
-
-#On définit une image, puis on la convertit pour la rendre plus facilement traitable par Pygame
-image_fond = pygame.image.load("asset/fond_menu.jpg")
-image_fond.convert()
-
-#On définit des positions, qui serviront à placer le texte
-x1=255
-y1=400
-
-x2 = 305 
-y2 = 500
-
-x3 = 405 
-y3 = 600
-
-x4 = 530 
-y4 = 700
-
-#On créé des variables, qui permettront de stocker le choix de l'utilisateur
-taille = ""
-nbObstacle = ""
-nbMaxFourmis = ""
-nbTourMaxMortSansManger = ""
-posNourriture = ""
-
-#Pour l'instant, l'utilisateur ne peut pas écrire
-
-ecriture = False
-Menu = True
 def menu():
+    #On définit quelques couleurs
+    couleur_bleu = (89, 152, 255)
+    couleur_noir = (0,0,0)
+    couleur_blanc = (255,255,255)
+
+    #On définit notre surface (la fenêtre), en lui attribuant une taille et un fond blanc
+    screen = pygame.display.set_mode((1200, 950))
+    screen.fill(couleur_blanc)
+
+
+    #On définit des polices de texte, en indiquant laquelle on utilise ainsi que la taille de police
+    police_arial = pygame.font.SysFont("arial", 50)
+    police_arial2 = pygame.font.SysFont("arial", 25)
+
+    #On créé du texte, en indiquant la police que l'on souhaite utiliser, le texte, et sa couleur. Le "True" indique qu'on lisse les contours
+    nom_jeu = police_arial.render("Projet fourmi", True, couleur_noir)
+    param_taille = police_arial2.render("Taille de la grille :", True, couleur_noir)
+    param_nbObstacle = police_arial2.render("Nombre d'obstacles :", True, couleur_noir)
+    param_nbMaxFourmis = police_arial2.render("Nombre maximum de fourmis :", True, couleur_noir)
+    param_nbTourMaxMortSansManger = police_arial2.render("Nombre de tour avant de mourir de faim :", True, couleur_noir)
+    param_posNourriture = police_arial2.render("Nourriture positionnée...", True, couleur_noir)
+    param_posNourriture1 = police_arial2.render("par défaut", True, couleur_noir)
+    param_posNourriture2 = police_arial2.render("aléatoirement", True, couleur_noir)
+    erreur = police_arial2.render("Vous devez saisir un nombre", True, couleur_noir)
+    text_Start = police_arial.render("Start", True, couleur_noir)
+    erreur_Start = police_arial2.render("Vous devez remplir tous les champs", True, couleur_noir)
+    Fois = police_arial2.render("x", True, couleur_noir)
+
+    #On créé des rectangles avec leur position et leur taille
+    rectangle_Taille= (250, 385, 100, 50)
+    rectangle_nbObstacle= (300, 485, 100, 50)
+    rectangle_nbMaxFourmis= (400, 585, 100, 50)
+    rectangle_tourSansManger= (525, 685, 100, 50)
+    rectangle_Defaut= (390, 785, 140, 50)
+    rectangle_Aleatoire= (575, 785, 200, 50)
+    rectangle_NotError= (550, 350, 400, 100)
+    rectangle_Start= (1000, 800, 200, 200)
+
+
+
+    #On définit une image, puis on la convertit pour la rendre plus facilement traitable par Pygame
+    image_fond = pygame.image.load("asset/fond_menu.jpg")
+    image_fond.convert()
+
+    #On définit des positions, qui serviront à placer le texte
+    x1=255
+    y1=400
+
+    x2 = 305 
+    y2 = 500
+
+    x3 = 405 
+    y3 = 600
+
+    x4 = 530 
+    y4 = 700
+
+    #On créé des variables, qui permettront de stocker le choix de l'utilisateur
+    taille = ""
+    nbObstacle = ""
+    nbMaxFourmis = ""
+    nbTourMaxMortSansManger = ""
+    posNourriture = ""
+
+    #Pour l'instant, l'utilisateur ne peut pas écrire
+
+    ecriture = False
     #Puis on les dessine sur la surface définit plus haut, en leur attribuant une couleur et une épaisseur de contours
     pygame.draw.rect(screen, couleur_noir, rectangle_Taille, 2)
     pygame.draw.rect(screen, couleur_noir, rectangle_nbObstacle, 2) 
@@ -80,9 +82,8 @@ def menu():
     
     pygame.draw.rect(screen, (191, 191, 191), rectangle_Defaut)
     pygame.draw.rect(screen, (191, 191, 191), rectangle_Aleatoire)
-    
-    #On définit comme globales les variables initialisées hors de la fonction, pour pouvoir les utiliser
-    global Menu, ecriture, taille,nbObstacle, nbMaxFourmis, nbTourMaxMortSansManger, nbTourMaxMortSansManger, posNourriture, x1, y1, x2, y2, x3, y3, x4, y4, NumeroRect
+    Menu = True
+
     while Menu == True:
         for event in pygame.event.get(): #Pour chacun des évènement que pygame.get() récupère
                     if event.type == pygame.QUIT:      #Si quitte la fenêtre ouverte par pygame
@@ -135,29 +136,50 @@ def menu():
                             ecriture = False #Alors on ne peut pas écrire
                             
                     elif event.type == pygame.KEYDOWN and ecriture == True:  #Si on appuie sur une touche, et que l'écriture est activée
-                        try:
-                            Chiffre = int(event.unicode)   #On vérifie que la saisie est bien un chiffre
-                            pygame.draw.rect(screen, couleur_blanc, rectangle_NotError)    #On recouvre les potentiels anciens messages d'erreur avec un rectangle blanc (méthode infaillible)
-                            saisi = police_arial2.render(event.unicode, True, couleur_noir)     #On créé du texte, qui correspond au chiffre saisi
-                            if(NumeroRect == 1):    #Si on se situe dans le rectangle de la taille
-                                screen.blit(saisi, [x1,y1])     #On affiche la saisi dans ce dernier
-                                screen.blit(saisi, [x1+150,y1]) 
-                                taille += str(event.unicode)    #Et on enregistre ce choix dans la variable taille
-                                x1+=20      #La position du texte est légèrement décalée vers la droite, afin de mettre un espace entre les saisi
-                            elif(NumeroRect == 2):      #Même principe pour les autres rectangles
-                                screen.blit(saisi, [x2,y2])
-                                nbObstacle += str(event.unicode)                        
-                                x2+=20
-                            elif(NumeroRect == 3):
-                                screen.blit(saisi, [x3,y3])
-                                nbMaxFourmis += str(event.unicode)
-                                x3+=20
-                            elif(NumeroRect == 4):
-                                screen.blit(saisi, [x4,y4])
-                                nbTourMaxMortSansManger += str(event.unicode)
-                                x4+=20
-                        except:  #Si il y a une erreur (donc que la saisie n'est pas un chiffre
-                            screen.blit(erreur, [600,400])      #On affiche un message d'erreur
+                        if event.key != pygame.K_BACKSPACE: #Si on appuie pas sur la touche "effacer"
+                            try:
+                                Chiffre = int(event.unicode)   #On vérifie que la saisie est bien un chiffre
+                                pygame.draw.rect(screen, couleur_blanc, rectangle_NotError)    #On recouvre les potentiels anciens messages d'erreur avec un rectangle blanc (méthode infaillible)
+                                saisi = police_arial2.render(event.unicode, True, couleur_noir)     #On créé du texte, qui correspond au chiffre saisi
+                                if(NumeroRect == 1):    #Si on se situe dans le rectangle de la taille
+                                    screen.blit(saisi, [x1,y1])     #On affiche la saisi dans ce dernier
+                                    screen.blit(saisi, [x1+150,y1]) 
+                                    taille += str(event.unicode)    #Et on enregistre ce choix dans la variable taille
+                                    x1+=20      #La position du texte est légèrement décalée vers la droite, afin de mettre un espace entre les saisi
+                                elif(NumeroRect == 2):      #Même principe pour les autres rectangles
+                                    screen.blit(saisi, [x2,y2])
+                                    nbObstacle += str(event.unicode)                        
+                                    x2+=20
+                                elif(NumeroRect == 3):
+                                    screen.blit(saisi, [x3,y3])
+                                    nbMaxFourmis += str(event.unicode)
+                                    x3+=20
+                                elif(NumeroRect == 4):
+                                    screen.blit(saisi, [x4,y4])
+                                    nbTourMaxMortSansManger += str(event.unicode)
+                                    x4+=20
+                            except:  #Si il y a une erreur (donc que la saisie n'est pas un chiffre
+                                screen.blit(erreur, [600,400])      #On affiche un message d'erreur
+                        else: #Si appuie sur la touche "effacer"
+                            if(NumeroRect == 1 and x1>255):    #Si on se situe dans le rectangle de la taille
+                                    pygame.draw.rect(screen, couleur_blanc, (x1-20,y1,20,30)) 
+                                    pygame.draw.rect(screen, couleur_blanc, (x1+130,y1,20,30)) 
+                                    taille = taille[:-1]   #Et on enregistre ce choix dans la variable taille
+                                    x1-=20      #La position du texte est légèrement décalée vers la droite, afin de mettre un espace entre les saisi
+                            elif(NumeroRect == 2 and x2 >305):      #Même principe pour les autres rectangles
+                                    pygame.draw.rect(screen, couleur_blanc, (x2-20,y2,20,30)) 
+                                    nbObstacle = nbObstacle[:-1]   #Et on enregistre ce choix dans la variable taille
+                                    x2-=20      #La position du texte est légèrement décalée vers la droite, afin de mettre un espace entre les saisi
+                            elif(NumeroRect == 3 and x3 > 405):
+                                    pygame.draw.rect(screen, couleur_blanc, (x3-20,y3,20,30)) 
+                                    nbMaxFourmis = nbMaxFourmis[:-1]
+                                    x3-=20
+                            elif(NumeroRect == 4 and x4>530):
+                                    pygame.draw.rect(screen, couleur_blanc, (x4-20,y4,20,30)) 
+                                    nbTourMaxMortSansManger = nbTourMaxMortSansManger[:-1]
+                                    x4-=20
+                            
+                            
         
         #Ici, on affiche tous les textes qui ont été créé au début du programme
         screen.blit(image_fond, [100,20])
